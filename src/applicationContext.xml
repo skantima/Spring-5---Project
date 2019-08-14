@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- Define your beans here -->
+    
+    <!-- define the dependency -->
+    
+    <bean id="dailyOffers"
+    	class="com.example.spring.DoorBusterOffers">
+    </bean>	
+    
+    <bean id="myShop"
+    	class="com.example.spring.FruitShop">
+        
+    <!-- set up the constructor injection -->
+    <constructor-arg ref="dailyOffers" />
+    
+    </bean>
+    
+    <bean id="myElectronicsShop"
+    	class="com.example.spring.ElectronicsShop">
+    	
+    <!-- setup the setter injection -->
+    <property name="offers" ref="dailyOffers"> </property>
+    </bean>
+    
+</beans>
+
+
+
+
+
